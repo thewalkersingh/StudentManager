@@ -90,7 +90,7 @@ public class DummyData implements CommandLineRunner {
 	  student3.setGender("Male");
 	  student3.setEmail("amit.kumar@example.in");
 	  student3.setMobile("9988776655");
-	  student3.setParentName("Sushma Kumar");
+	  student3.setParentName("Ajankya Kanna");
 	  student3.setParentNumber("8877665544");
 	  
 	  StudentAddress address3 = new StudentAddress();

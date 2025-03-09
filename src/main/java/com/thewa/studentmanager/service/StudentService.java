@@ -51,9 +51,11 @@ public class StudentService {
    // Assign course to a student (Admin feature)
    public StudentDTO assignCourse(Long studentId, Long courseId) {
 	  Student student =
-			  studentRepository.findById(studentId).orElseThrow(() -> new RuntimeException("Student not found"));
+			  studentRepository.findById(studentId)
+							   .orElseThrow(() -> new RuntimeException("Student not found"));
 	  Course course =
-			  courseRepository.findById(courseId).orElseThrow(() -> new RuntimeException("Course not found"));
+			  courseRepository.findById(courseId)
+							  .orElseThrow(() -> new RuntimeException("Course not found"));
 	  student.getCourses().add(course);
 	  course.getStudents().add(student);
 	  studentRepository.save(student);

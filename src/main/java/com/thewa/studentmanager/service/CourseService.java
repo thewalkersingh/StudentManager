@@ -2,12 +2,15 @@ package com.thewa.studentmanager.service;
 import com.thewa.studentmanager.dto.CourseDTO;
 import com.thewa.studentmanager.dto.StudentDTO;
 import com.thewa.studentmanager.entity.Course;
+import com.thewa.studentmanager.entity.Student;
 import com.thewa.studentmanager.mapper.CourseMapper;
 import com.thewa.studentmanager.mapper.StudentMapper;
 import com.thewa.studentmanager.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,8 +47,9 @@ public class CourseService {
    public List<StudentDTO> getStudentsByCourseId(Long courseId) {
 	  Course course = courseRepository.findById(courseId)
 									  .orElseThrow(() -> new RuntimeException("Course not found"));
-	  return course.getStudents().stream()
-				   .map(studentMapper::toDTO)
-				   .collect(Collectors.toList());
+	  Set<Student> students = new HashSet<>(course.getStudents());
+	  return students.stream()
+					 .map(studentMapper::toDTO)
+					 .collect(Collectors.toList());
    }
 }
