@@ -1,17 +1,12 @@
 package com.thewa.studentmanager.entity;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode(exclude = {"students"})
 public class Course {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

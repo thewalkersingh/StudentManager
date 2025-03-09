@@ -1,11 +1,7 @@
 package com.thewa.studentmanager.dto;
-import lombok.*;
+import lombok.Data;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 public class StudentAddressDTO {
    private String area;
    private String state;
