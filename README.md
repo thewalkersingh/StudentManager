@@ -94,7 +94,7 @@ studentmanager/
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/studentmanager.git
+   git clone https://github.com/thewalkersingh/studentmanager.git
    cd studentmanager
 
 2. Update src/main/resources/application.yml with your MySQL connection details
