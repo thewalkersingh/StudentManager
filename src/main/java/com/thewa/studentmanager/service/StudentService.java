@@ -35,8 +35,6 @@ public class StudentService {
    // Admit a new student (Admin feature)
    public StudentDTO admitStudent(StudentDTO studentDTO) {
 	  Student student = studentMapper.toEntity(studentDTO);
-	  // If addresses are provided, set them up (can iterate over studentDTO.getAddresses())
-	  // Save student to DB
 	  Student saved = studentRepository.save(student);
 	  return studentMapper.toDTO(saved);
    }
@@ -57,7 +55,6 @@ public class StudentService {
 	  Course course =
 			  courseRepository.findById(courseId).orElseThrow(() -> new RuntimeException("Course not found"));
 	  student.getCourses().add(course);
-	  // For bidirectional mapping, add student to course as well
 	  course.getStudents().add(student);
 	  studentRepository.save(student);
 	  courseRepository.save(course);
@@ -90,14 +87,10 @@ public class StudentService {
    public StudentDTO updateProfile(Long studentId, StudentDTO updateData) {
 	  Student student = studentRepository.findById(studentId)
 										 .orElseThrow(() -> new RuntimeException("Student not found"));
-	  
-	  // Update fields (only updating profile-related fields)
 	  student.setEmail(updateData.getEmail());
 	  student.setMobile(updateData.getMobile());
 	  student.setParentName(updateData.getParentName());
 	  student.setParentNumber(updateData.getParentNumber());
-	  
-	  // If new addresses are provided, clear existing ones and add the new addresses.
 	  if (updateData.getAddresses() != null && !updateData.getAddresses().isEmpty()) {
 		 student.getAddresses().clear();
 		 updateData.getAddresses().forEach(addressDTO -> {

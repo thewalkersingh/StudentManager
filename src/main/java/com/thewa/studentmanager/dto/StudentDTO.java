@@ -1,12 +1,16 @@
 package com.thewa.studentmanager.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class StudentDTO {
    @NotBlank(message = "Name is required")
    private String name;

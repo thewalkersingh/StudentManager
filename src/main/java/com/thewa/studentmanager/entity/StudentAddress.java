@@ -1,9 +1,13 @@
 package com.thewa.studentmanager.entity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class StudentAddress {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

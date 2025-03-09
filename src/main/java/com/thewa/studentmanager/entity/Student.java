@@ -1,12 +1,17 @@
 package com.thewa.studentmanager.entity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.*;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = {"addresses", "courses"})
 public class Student {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +29,7 @@ public class Student {
    
    @ManyToMany
    @JoinTable(name = "student_course",
-			  joinColumns = @JoinColumn(name = "student_id"),
-			  inverseJoinColumns = @JoinColumn(name = "course_id"))
+              joinColumns = @JoinColumn(name = "student_id"),
+              inverseJoinColumns = @JoinColumn(name = "course_id"))
    private Set<Course> courses = new HashSet<>();
 }

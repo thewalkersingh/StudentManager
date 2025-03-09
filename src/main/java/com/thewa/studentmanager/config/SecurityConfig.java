@@ -20,7 +20,6 @@ public class SecurityConfig {
    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 	  http.csrf(AbstractHttpConfigurer::disable)
 		  .authorizeHttpRequests(auth -> auth
-				  // Permit Swagger endpoints if needed
 				  .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
 				  .requestMatchers("/api/admin/**").hasRole("ADMIN")
 				  .anyRequest().permitAll())

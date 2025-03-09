@@ -3,6 +3,14 @@
 A Spring Boot-based application for managing students, courses, and enrollments with separate admin and student
 functionalities.
 
+### Swagger UI is available by default at:
+
+http://localhost:8080/swagger-ui/index.html \
+Just run your application and open that URL in your browser. If you're looking for the raw OpenAPI spec, you can
+check:
+
+http://localhost:8080/v3/api-docs
+
 ## Table of Contents
 
 - [Features](#features)
@@ -152,7 +160,8 @@ studentmanager/
 
 Import the provided Postman collection into Postman for a quick start on API testing. Alternatively, follow the
 API testing instructions above to manually test the endpoints.
+
 - I have used below details for testing purpose.
-- Use Basic Auth 
+- Use Basic Auth
 - `username: admin`
 - `Password: admin123`
