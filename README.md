@@ -1,15 +1,19 @@
 # Student Manager
 
-A Spring Boot-based application for managing students, courses, and enrollments with separate admin and student
-functionalities.
+A Spring Boot-based application designed to manage students, courses, and enrollments with dedicated functionalities for
+both admin and student users.
 
-### Swagger UI is available by default at:
+- Admin Features: Admit new students, manage courses, and oversee enrollments. (Admin credentials are hardcoded.)
+- Student Features: Self-service capabilities including profile management and course interactions.
+- Testing Data: Dummy data has been added for testing purposes.
+  All details and API documentation are available below. I plan to continue enhancing this project and would appreciate
+  your feedback.
 
-http://localhost:8080/swagger-ui/index.html \
-Just run your application and open that URL in your browser. If you're looking for the raw OpenAPI spec, you can
-check:
+For suggestions or inquiries, feel free to reach me at: [the.walkersingh@hotmail.com](the.walkersingh@hotmail.com)
 
-http://localhost:8080/v3/api-docs
+### Swagger UI is available at:
+
+http://localhost:8080/swagger-ui/index.html
 
 ## Table of Contents
 
@@ -21,7 +25,7 @@ http://localhost:8080/v3/api-docs
 - [Testing](#testing)
 - [Postman Collection](#postman-collection)
 
-## Features
+## Implemented Features
 
 - **Admin Section:**
     - Admit new students with personal details and multiple addresses.
@@ -52,50 +56,19 @@ http://localhost:8080/v3/api-docs
 studentmanager/
 ├── pom.xml
 └── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── thewa
-    │   │           └── studentmanager
-    │   │               ├── StudentManagerApplication.java         
-    │   │               ├── config
-    │   │               │   ├── SecurityConfig.java                 
-    │   │               │   └── SwaggerConfig.java
-    |   |               |   └── DummyData.java                   
-    │   │               ├── controller
-    │   │               │   ├── AdminCourseController.java          
-    │   │               │   ├── AdminStudentController.java         
-    │   │               │   └── StudentController.java              
-    │   │               ├── dto
-    │   │               │   ├── CourseDTO.java                      
-    │   │               │   ├── StudentDTO.java                     
-    │   │               │   └── StudentAddressDTO.java              
-    │   │               ├── entity
-    │   │               │   ├── Course.java                         
-    │   │               │   ├── Student.java                        
-    │   │               │   └── StudentAddress.java
-    │   │               ├── mapper
-    │   │               │   ├── CourseMapper.java                   
-    │   │               │   └── StudentMapper.java                  
-    │   │               ├── repository
-    │   │               │   ├── CourseRepository.java               
-    │   │               │   ├── StudentRepository.java              
-    │   │               │   └── StudentAddressRepository.java       
-    │   │               └── service
-    │   │                   ├── CourseService.java                  
-    │   │                   └── StudentService.java                 
-    │   └── resources
-    │       ├── application.properties                           
-    │       └── ...                                              
-    └── test
-        └── java
-            └── com
-                └── thewa
-                    └── studentmanager
-                        ├── controller
-                        │   └── StudentControllerIntegrationTest.java
-                        └── service
-                            └── StudentServiceTest.java                
+    /main/java/com/studentmanagement
+    ├── controller
+    ├── service
+    ├── repository
+    ├── entity
+    ├── dto
+    ├── mapper
+    ├── config 
+    /test
+      ├── controller
+      │   └── StudentControllerIntegrationTest.java
+      └── service
+          └── StudentServiceTest.java                
 ```
 
 ## Setup Instructions
@@ -105,21 +78,21 @@ studentmanager/
    git clone https://github.com/thewalkersingh/studentmanager.git
    cd studentmanager
 
-2. Update src/main/resources/application.yml with your MySQL connection details
-    ```
-   spring:
-    datasource:
-      url: jdbc:mysql://localhost:3306/studentdb?createDatabaseIfNotExist=true
-    username: your_username
-    password: your_password
-    driver-class-name: com.mysql.cj.jdbc.Driver
+   2. Update src/main/resources/application.yml with your MySQL connection details
+       ```
+      spring:
+        datasource:
+         url: jdbc:mysql://localhost:3306/studentdb?createDatabaseIfNotExist=true
+         username: your_username
+         password: your_password
+         driver-class-name: com.mysql.cj.jdbc.Driver
 
-    jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-    ddl-auto: update
-    show-sql: true
-   ```
+      jpa:
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        hibernate:
+          ddl-auto: update
+        show-sql: true
+      ```
 
 3. Build the Project
     ```bash
@@ -132,8 +105,8 @@ studentmanager/
 
 ### 1. Admin Endpoints
 
-- POST /api/admin/students/admit
-- GET /api/admin/students/search?name=...
+- POST localhost:8080/api/admin/students/admit
+- GET /api/admin/students/search?name={name}
 - PUT /api/admin/students/{studentId}/courses/{courseId}
 - POST /api/admin/courses/upload
 - GET /api/admin/courses
@@ -159,9 +132,10 @@ studentmanager/
 ## Postman Collection
 
 Import the provided Postman collection into Postman for a quick start on API testing. Alternatively, follow the
-API testing instructions above to manually test the endpoints.
+API testing instructions above to manually test the endpoints.\
+https://student-management-system-5474.postman.co/workspace/092c4dca-17e7-478f-98dd-da22b9d7087a
 
 - I have used below details for testing purpose.
-- Use Basic Auth
-- `username: admin`
-- `Password: admin123`
+- Use `Basic Auth` with
+  `Username: admin` and
+  `Password: admin123`

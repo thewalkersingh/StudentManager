@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "be7fbe6c-4a3f-4a5e-b796-ed21c9c41a7a",
+		"name": "Student Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18274153"
+	},
+	"item": [
+		{
+			"name": "Admit Student",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"Charlie Brown\",\r\n    \"dob\": \"2002-02-02\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"charlie.brown@example.com\",\r\n    \"mobile\": \"5551234567\",\r\n    \"parentName\": \"Sally Brown\",\r\n    \"parentNumber\": \"5559876543\",\r\n    \"addresses\": [\r\n        {\r\n            \"area\": \"Suburbia\",\r\n            \"state\": \"California\",\r\n            \"district\": \"San Diego\",\r\n            \"pincode\": \"92101\",\r\n            \"addressType\": \"Permanent\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/admin/students/admit",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"students",
+						"admit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student by name",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/admin/students/search?name=John Doe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"students",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John Doe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign course to student",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/admin/students/1/courses/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"students",
+						"1",
+						"courses",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload a New Course",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"courseName\": \"Angular 101\",\r\n  \"description\": \"Introduction to Angular framework.\",\r\n  \"courseType\": \"Frontend\",\r\n  \"duration\": \"2 months\",\r\n  \"topics\": \"Angular, TypeScript, Components\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/admin/courses/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Courses",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/admin/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students Enrolled in a Course",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/admin/courses/2/students",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"courses",
+						"2",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Student Credentials",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/students/validate?studentId=1&dateOfBirth=2000-01-01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"validate"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "1"
+						},
+						{
+							"key": "dateOfBirth",
+							"value": "2000-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"new.email@example.com\",\r\n  \"mobile\": \"5550001111\",\r\n  \"parentName\": \"Updated Parent\",\r\n  \"parentNumber\": \"5552223333\",\r\n  \"addresses\": [\r\n    {\r\n      \"area\": \"New Area\",\r\n      \"state\": \"New State\",\r\n      \"district\": \"New District\",\r\n      \"pincode\": \"123456\",\r\n      \"addressType\": \"Correspondence\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/students/update/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Assigned Courses",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/students/courses?studentId=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"courses"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leave a Course",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/students/leave/3?studentId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"leave",
+						"3"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
