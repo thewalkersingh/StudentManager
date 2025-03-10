@@ -3,7 +3,8 @@
 		"_postman_id": "be7fbe6c-4a3f-4a5e-b796-ed21c9c41a7a",
 		"name": "Student Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18274153"
+		"_exporter_id": "18274153",
+		"_collection_link": "https://student-management-system-5474.postman.co/workspace/Student-management-System-Works~092c4dca-17e7-478f-98dd-da22b9d7087a/collection/18274153-be7fbe6c-4a3f-4a5e-b796-ed21c9c41a7a?action=share&source=collection_link&creator=18274153"
 	},
 	"item": [
 		{
@@ -28,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n    \"name\": \"Charlie Brown\",\r\n    \"dob\": \"2002-02-02\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"charlie.brown@example.com\",\r\n    \"mobile\": \"5551234567\",\r\n    \"parentName\": \"Sally Brown\",\r\n    \"parentNumber\": \"5559876543\",\r\n    \"addresses\": [\r\n        {\r\n            \"area\": \"Suburbia\",\r\n            \"state\": \"California\",\r\n            \"district\": \"San Diego\",\r\n            \"pincode\": \"92101\",\r\n            \"addressType\": \"Permanent\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n  \"name\": \"Test Student\",\r\n  \"dob\": \"2000-01-01\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"test.student@example.com\",\r\n  \"mobile\": \"1234567890\",\r\n  \"parentName\": \"Test Parent\",\r\n  \"parentNumber\": \"0987654321\",\r\n  \"addresses\": [\r\n    {\r\n      \"area\": \"Test Area\",\r\n      \"state\": \"Test State\",\r\n      \"district\": \"Test District\",\r\n      \"pincode\": \"123456\",\r\n      \"addressType\": \"Permanent\"\r\n    },\r\n    {\r\n      \"area\": \"Test Area2\",\r\n      \"state\": \"Test State2\",\r\n      \"district\": \"Test District2\",\r\n      \"pincode\": \"12223456\",\r\n      \"addressType\": \"Temporary\"\r\n    }\r\n  ]\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,7 +73,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/admin/students/search?name=John Doe",
+					"raw": "localhost:8080/api/admin/students/search?name=rahul",
 					"host": [
 						"localhost"
 					],
@@ -86,7 +87,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "John Doe"
+							"value": "rahul"
 						}
 					]
 				}
@@ -266,7 +267,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/students/validate?studentId=1&dateOfBirth=2000-01-01",
+					"raw": "localhost:8080/api/students/validate?studentId=2&dateOfBirth=1999-06-15",
 					"host": [
 						"localhost"
 					],
@@ -279,11 +280,11 @@
 					"query": [
 						{
 							"key": "studentId",
-							"value": "1"
+							"value": "2"
 						},
 						{
 							"key": "dateOfBirth",
-							"value": "2000-01-01"
+							"value": "1999-06-15"
 						}
 					]
 				}
@@ -300,7 +301,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"new.email@example.com\",\r\n  \"mobile\": \"5550001111\",\r\n  \"parentName\": \"Updated Parent\",\r\n  \"parentNumber\": \"5552223333\",\r\n  \"addresses\": [\r\n    {\r\n      \"area\": \"New Area\",\r\n      \"state\": \"New State\",\r\n      \"district\": \"New District\",\r\n      \"pincode\": \"123456\",\r\n      \"addressType\": \"Correspondence\"\r\n    }\r\n  ]\r\n}\r\n",
+					"raw": "{\r\n  \"name\": \"Test Student\",\r\n  \"dob\": \"2000-01-01\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"updated.email@example.com\",\r\n  \"mobile\": \"9998887777\",\r\n  \"parentName\": \"Updated Parent\",\r\n  \"parentNumber\": \"1112223333\",\r\n  \"addresses\": [\r\n    {\r\n      \"area\": \"New Area\",\r\n      \"state\": \"New State\",\r\n      \"district\": \"New District\",\r\n      \"pincode\": \"654321\",\r\n      \"addressType\": \"Correspondence\"\r\n    }\r\n  ]\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -332,7 +333,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/students/courses?studentId=2",
+					"raw": "localhost:8080/api/students/courses?studentId=1&search=java",
 					"host": [
 						"localhost"
 					],
@@ -345,7 +346,11 @@
 					"query": [
 						{
 							"key": "studentId",
-							"value": "2"
+							"value": "1"
+						},
+						{
+							"key": "search",
+							"value": "java"
 						}
 					]
 				}
@@ -361,7 +366,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/students/leave/3?studentId=1",
+					"raw": "localhost:8080/api/students/leave/1?studentId=1",
 					"host": [
 						"localhost"
 					],
@@ -370,7 +375,7 @@
 						"api",
 						"students",
 						"leave",
-						"3"
+						"1"
 					],
 					"query": [
 						{
