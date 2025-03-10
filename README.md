@@ -9,7 +9,7 @@ both admin and student users.
   All details and API documentation are available below. I plan to continue enhancing this project and would appreciate
   your feedback.
 
-For suggestions or inquiries, feel free to reach me at: [the.walkersingh@hotmail.com](the.walkersingh@hotmail.com)
+For suggestions or inquiries, feel free to reach me at: `the.walkersingh@hotmail.com`
 
 ### Swagger UI is available at:
 
