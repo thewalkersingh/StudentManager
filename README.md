@@ -105,7 +105,7 @@ studentmanager/
 
 ### 1. Admin Endpoints
 
-- POST localhost:8080/api/admin/students/admit
+- POST /api/admin/students/admit
 - GET /api/admin/students/search?name={name}
 - PUT /api/admin/students/{studentId}/courses/{courseId}
 - POST /api/admin/courses/upload
