@@ -11,10 +11,10 @@ spring:
       ddl-auto: update
     show-sql: true
 
-logging:
-  level:
-    org.springframework: DEBUG
-    com.thewa.studentmanager: DEBUG
+#logging:
+#  level:
+#    org.springframework: DEBUG
+#    com.thewa.studentmanager: DEBUG
 
 
 #spring:
